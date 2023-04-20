@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        .container{
+            height: 80vh;
+            width: 25vw;
+            border-radius: 10px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            background-color: whitesmoke;
+        }
+
+        .inner_container{
+            height: 65vh;
+            width: 18vw;
+            border-radius: 10px;
+            margin: auto;  
+            background-color: white;
+            box-shadow: 8px 8px 8px black;
+            box-shadow: -8px -8px 8px rgb(201, 199, 199);
+            overflow: hidden;
+        }
+
+        .box_1{
+            height: 12%;
+            width: 80%;
+            margin: auto;
+            border-radius: 5px;
+            margin-top: 10%;
+            display: flex;
+        }
+        .box_2{
+            height: 10%;
+            width: 80%;
+            border-radius: 5px;
+            margin: auto;
+            margin-top: 10%;
+            background-color: rgb(244, 242, 242);
+            box-shadow: 5px 5px 5px rgb(145, 144, 144);
+            display: flex;
+        }
+         .creat_add{
+            height: 30px;
+            width: 170px;
+            border-radius: 5px;
+            margin: auto;
+            margin-top: 5%;
+            background-color: rgb(244, 242, 242);
+            box-shadow: 5px 5px 5px rgb(145, 144, 144);
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: rgb(96, 96, 97);
+            padding-left: 5%;
+            cursor: pointer;
+            overflow: hidden;
+        }
+        .logo{
+            width: 30px;
+            height: 30px;
+            margin: auto;
+            border-radius: 50%;
+            margin-left: 0px;
+            background-color: rgb(96, 96, 97);;
+        }
+
+        .logo_name{
+            width: 75%;
+            height: 90%;
+            border-radius: 5px;
+            font-size: 22px;
+            font-weight: bold;
+            color: rgb(96, 96, 97);
+            display: flex;
+            align-items: center;
+        }
+        .input{
+            border: hidden;
+            width: 80%;
+            color: rgb(96, 96, 97);
+            height: 90%;
+            font-size: 17px;
+            font-weight: 300;
+            text-align: center;
+            align-items: center;
+        }
+
+        .symbol{
+            width: 17%;
+            border: hidden;
+            height: 90%;
+            font-size: 25px;
+            font-weight: bolder;
+            justify-content: center;
+            color: rgb(96, 96, 97);
+        }
+
+        @media only screen and (max-width: 600px){
+            .container{
+                width: 100vw;
+            }
+
+            .inner_container{
+                width: 80vw;
+            }
+
+            .box_1{
+                width: 70%;
+            }
+            .logo{
+                width: 40px;
+                height: 40px;
+            }
+
+            .logo_name{
+                width: 72%;
+                font-size: 35px;
+            }
+
+            .input{
+                font-size: 30px;
+            }
+            .creat_add{
+                width: 260px;
+                height: 50px;
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- <div class="logo">sass</div>
+    <div class="nav_button fa fa-align-justify"></div>
+    <li class="nav_bar_link"><a href="">Home</a></li>
+    <li class="nav_bar_link"><a href="">About</a></li>
+    <li class="nav_bar_link"><a href="">Contact</a></li>
+    <li class="nav_bar_link"><a href="">Service</a></li> -->
+
+    <div class="container">
+        <div class="inner_container">
+            <div class="box_1">
+                <img src="bell.png" alt="" class="logo">
+                <div class="logo_name">ToDo List</div>
+            </div>
+            <div class="box_2">
+                <input type="text" class="input" placeholder="add list">
+                <button class="symbol">+</button>
+            </div>
+            <div class="child">
+               
+            </div>
+        </div>
+    </div>
+    <script>
+        const a=document.querySelector(".input");
+        const b=document.querySelector("button");
+        const c=document.querySelector(".child");
+        b.addEventListener('click',()=>{
+            console.log('working')
+            const creatElement=document.createElement('div');
+            creatElement.classList.add('creat_add');
+            creatElement.innerHTML=a.value;
+            c.appendChild(creatElement);
+            a.value="";
+
+            creatElement.addEventListener('click',()=>{
+                creatElement.style.textDecoration = 'line-through'
+            })
+
+
+            creatElement.addEventListener('dblclick',()=>{
+                c.removeChild(creatElement);
+            })
+        })
+    </script>
+</body>
+</html>
